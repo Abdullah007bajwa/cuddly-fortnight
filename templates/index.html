@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>🌟 Text Prediction Dashboard</h1>
+        <h2>Powered by AI</h2>
+        
+        <div class="input-section">
+            <textarea id="user-input" placeholder="Type your text here..."></textarea>
+            <button onclick="handlePrediction()">✨ Get Prediction</button>
+        </div>
+        
+        <div class="output-section">
+            <h2>Prediction Output</h2>
+            <div id="prediction-output">Your prediction will appear here...</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
