@@ -1,27 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Prediction</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="AI-powered text prediction interface">
+    <title>Cuddly Fortnight | Context-Aware Text Prediction</title>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="/static/css/styles.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 </head>
 <body>
-    <div class="dashboard">
-        <h1>🌟 Text Prediction Dashboard</h1>
-        <h2>Powered by AI</h2>
-        
-        <div class="input-section">
-            <textarea id="user-input" placeholder="Type your text here..."></textarea>
-            <button onclick="handlePrediction()">✨ Get Prediction</button>
-        </div>
-        
-        <div class="output-section">
-            <h2>Prediction Output</h2>
-            <div id="prediction-output">Your prediction will appear here...</div>
-        </div>
-    </div>
+    <div class="app-container">
+        <header class="app-header" aria-label="Main header">
+            <div class="header-content">
+                <h1 class="animated-header">
+                    <span class="fox-emoji" aria-hidden="true">🦊</span>
+                    <span class="title-text">Cuddly Fortnight</span>
+                </h1>
+                <p class="tagline">Intelligent Text Completion Engine</p>
+            </div>
+        </header>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        <main id="main-content" class="main-content">
+            <section class="input-card" aria-labelledby="input-heading">
+                <div class="input-header">
+                    <i class="fas fa-keyboard icon" aria-hidden="true"></i>
+                    <h2 id="input-heading">Your Input</h2>
+                </div>
+                <div class="input-wrapper">
+                    <textarea 
+                        id="user-input"
+                        class="text-input"
+                        placeholder="Begin your thought here..."
+                        spellcheck="false"
+                        aria-label="Text input for predictions"
+                    ></textarea>
+                    <div class="input-controls">
+                        <button 
+                            id="predict-btn" 
+                            class="primary-btn"
+                            aria-label="Generate text prediction"
+                        >
+                            Generate Continuation
+                            <i class="fas fa-magic btn-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="output-card" aria-labelledby="output-heading">
+                <div class="output-header">
+                    <i class="fas fa-brain icon" aria-hidden="true"></i>
+                    <h2 id="output-heading">AI Prediction</h2>
+                </div>
+                <div class="output-wrapper">
+                    <div id="loading" class="loading-state" hidden>
+                        <div class="loading-spinner" aria-hidden="true"></div>
+                        <p class="loading-text">Analyzing context patterns...</p>
+                    </div>
+                    <div 
+                        id="prediction-output" 
+                        class="prediction-output"
+                        aria-live="polite"
+                        aria-atomic="true"
+                    ></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script defer src="/static/js/script.js"></script>
 </body>
 </html>
